@@ -5,7 +5,7 @@ export class Board{
         this.width=width;1
         this.height=height;
         this.parent=parent;
-        this.cellWidth=5;
+        this.cellWidth=9;
         this.createCanvas();
         this.snake=new Snake(this);
         this.foodController = new FoodController(this); 

@@ -10,7 +10,7 @@ export class Snake{
 
         this.positionX=0;
         this.positionY=0;
-        this.snakeSpeed = 500;
+        this.snakeSpeed = 100;
         this.direction=DIRECTIONS.RIGHT;  
         
         this.snakeUnitsArr=[new SnakeUnit(this.board,0,0),new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0)]; //for the first unt ::: ,new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0),new SnakeUnit(this.board,-15,0)
