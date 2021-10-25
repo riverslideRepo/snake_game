@@ -10,12 +10,12 @@ export class Snake{
 
         this.positionX=0;
         this.positionY=0;
-        this.snakeSpeed = 100;
+        this.snakeSpeed = 500;
         this.direction=DIRECTIONS.RIGHT;  
         
         this.snakeUnitsArr=[new SnakeUnit(this.board,0,0),new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0)]; //for the first unt ::: ,new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0),new SnakeUnit(this.board,-15,0)
 
-        setInterval(this.move, this.snakeSpeed);
+        this.timer=setInterval(this.move, this.snakeSpeed);
 
     }
 
@@ -42,9 +42,32 @@ export class Snake{
 
         this.checkFood();
         
-        
+        this.checkSelfCollision();       
 
     }
+
+    checkSelfCollision=()=>{
+        let head=this.snakeUnitsArr[0];
+        let headCenterX = head.positionX + this.board.cellWidth/2;
+        let headCenterY = head.positionY + this.board.cellWidth/2;
+        let ifCollided = false;
+
+        for(let i=1; i<this.snakeUnitsArr.length; i++) {
+            let snakeUnit = this.snakeUnitsArr[i];
+            let calcX = snakeUnit.positionX + this.board.cellWidth/2;
+            let calcY = snakeUnit.positionY + this.board.cellWidth/2;
+
+            if((headCenterX > calcX-this.board.cellWidth/2)
+            && (headCenterX < calcX+this.board.cellWidth/2)
+            && (headCenterY > calcY-this.board.cellWidth/2)
+            && (headCenterY < calcY+this.board.cellWidth/2)){
+                clearInterval(this.timer);
+                console.log("Game over");
+            }
+        }
+        
+    }
+
     checkFood=()=>{
         if(this.board.foodController.checkFoodCollisions()){
             this.increaseLength();

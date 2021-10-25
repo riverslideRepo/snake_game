@@ -12,29 +12,6 @@ export class FoodController{
         let headCenterX = head.positionX + this.board.cellWidth/2;
         let headCenterY = head.positionY + this.board.cellWidth/2;
         let ifCollided = false;
-        // if(this.board.snake.direction == DIRECTIONS.LEFT){
-        //     if(headCenterX < this.currentFood.positionX && headCenterY > (this.currentFood.positionY - this.board.cellWidth/2) && headCenterY < (this.currentFood.positionY + this.board.cellWidth/2)){
-        //         ifCollided = true;
-        //     }
-
-        // }else if(this.board.snake.direction == DIRECTIONS.RIGHT){
-        //     if(headCenterX > this.currentFood.positionX && headCenterY > (this.currentFood.positionY - this.board.cellWidth/2) && headCenterY < (this.currentFood.positionY + this.board.cellWidth/2)){
-        //         ifCollided = true;
-        //     }
-        // }else if(this.board.snake.direction == DIRECTIONS.UP){
-        //     if(headCenterY < this.currentFood.positionY && headCenterX > (this.currentFood.positionX - this.board.cellWidth/2) && headCenterX < (this.currentFood.positionX + this.board.cellWidth/2)){
-        //         ifCollided = true;
-        //     }
-        // }else if(this.board.snake.direction == DIRECTIONS.DOWN){
-        //     if(headCenterY < this.currentFood.positionY && headCenterX > (this.currentFood.positionX - this.board.cellWidth/2) && headCenterX < (this.currentFood.positionX + this.board.cellWidth/2)){
-        //         ifCollided = true;
-        //     }
-        // }
-
-        // if(ifCollided == true){
-        //     return true;
-        // }
-        // // console.log(headCenterX, headCenterY);
         if((headCenterX > this.currentFood.positionX-this.board.cellWidth/2)
          && (headCenterX < this.currentFood.positionX+this.board.cellWidth/2)
          && (headCenterY > this.currentFood.positionY-this.board.cellWidth/2)
