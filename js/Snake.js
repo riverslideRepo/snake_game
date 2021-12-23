@@ -48,19 +48,25 @@ export class Snake{
 
     checkSelfCollision=()=>{
         let head=this.snakeUnitsArr[0];
-        let headCenterX = head.positionX + this.board.cellWidth/2;
-        let headCenterY = head.positionY + this.board.cellWidth/2;
-        let ifCollided = false;
+        // let headCenterX = head.positionX + this.board.cellWidth/2;
+        // let headCenterY = head.positionY + this.board.cellWidth/2;
+        // let ifCollided = false;
 
         for(let i=1; i<this.snakeUnitsArr.length; i++) {
             let snakeUnit = this.snakeUnitsArr[i];
-            let calcX = snakeUnit.positionX + this.board.cellWidth/2;
-            let calcY = snakeUnit.positionY + this.board.cellWidth/2;
 
-            if((headCenterX > calcX-this.board.cellWidth/2)
-            && (headCenterX < calcX+this.board.cellWidth/2)
-            && (headCenterY > calcY-this.board.cellWidth/2)
-            && (headCenterY < calcY+this.board.cellWidth/2)){
+            // let calcX = snakeUnit.positionX + this.board.cellWidth/2;
+            // let calcY = snakeUnit.positionY + this.board.cellWidth/2;
+
+            // if((headCenterX > calcX-this.board.cellWidth/2)
+            // && (headCenterX < calcX+this.board.cellWidth/2)
+            // && (headCenterY > calcY-this.board.cellWidth/2)
+            // && (headCenterY < calcY+this.board.cellWidth/2)){
+            //     clearInterval(this.timer);
+            //     console.log("Game over");
+            // }
+
+            if((head.positionX == snakeUnit.positionX) && (head.positionY == snakeUnit.positionY)){
                 clearInterval(this.timer);
                 console.log("Game over");
             }
