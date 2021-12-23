@@ -38,20 +38,20 @@ export class SnakeUnit{
     }
 
     moveUp=()=>{
-        this.positionY = this.positionY - this.board.cellWidth;
-        // this.positionY--;
+        // this.positionY = this.positionY - this.board.cellWidth;
+        this.positionY--;
     }
     moveDown=()=>{
-        this.positionY = this.positionY + this.board.cellWidth;
-        // this.positionY++;
+        // this.positionY = this.positionY + this.board.cellWidth;
+        this.positionY++;
     }
     moveLeft=()=>{
-        this.positionX = this.positionX - this.board.cellWidth;
-        // this.positionX--;
+        // this.positionX = this.positionX - this.board.cellWidth;
+        this.positionX--;
     }
     moveRight=()=>{
-        this.positionX = this.positionX + this.board.cellWidth;
-        // this.positionX++;
+        // this.positionX = this.positionX + this.board.cellWidth;
+        this.positionX++;
     }
 
 }
