@@ -24,6 +24,7 @@ export class Board{
     }
 
     render=()=>{
+
         this.canvas.clearRect(0,0,this.width * this.cellWidth,this.height * this.cellWidth);
         this.renderBoard();
         this.snake.render();
@@ -32,7 +33,16 @@ export class Board{
 
     renderBoard=()=>{
         this.canvas.fillStyle="green";
+
         this.canvas.fillRect(0,0,this.width * this.cellWidth,this.height * this.cellWidth);
         // console.log("DS");
+
+        for(let i=0; i<this.width; i++){
+            for(let j=0; j<this.height; j++){
+                this.canvas.strokeStyle="gray";
+                this.canvas.strokeRect(i * this.cellWidth, j * this.cellWidth, this.cellWidth, this.cellWidth);
+    
+            }
+        }
     }
 };
