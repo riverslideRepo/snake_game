@@ -145,17 +145,17 @@ export class Snake{
         let py;
         let dir=prevUnit.direction;
         if(prevUnit.direction == DIRECTIONS.LEFT){
-            px = prevUnit.positionX + this.board.cellWidth
+            px = prevUnit.positionX + 1
             py = prevUnit.positionY;
         }else if(prevUnit.direction == DIRECTIONS.RIGHT){
-            px = prevUnit.positionX - this.board.cellWidth;
+            px = prevUnit.positionX - 1;
             py = prevUnit.positionY;
         }else if(prevUnit.direction == DIRECTIONS.UP){
             px=prevUnit.positionX;
-            py=prevUnit.positionY + this.board.cellWidth;
+            py=prevUnit.positionY + 1;
         }else if(prevUnit.direction == DIRECTIONS.DOWN){
             px=prevUnit.positionX;
-            py=prevUnit.positionY - this.board.cellWidth;
+            py=prevUnit.positionY - 1;
         }
  
         // console.log(px,py,prevUnit.positionX);
