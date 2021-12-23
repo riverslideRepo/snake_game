@@ -77,15 +77,15 @@ export class Snake{
         }
     }
     boundaryReposition=()=>{
-        if((this.snakeUnitsArr[0].positionX + this.board.cellWidth)>this.board.width && this.direction == DIRECTIONS.RIGHT){
-            this.snakeUnitsArr[0].positionX=-1*(this.board.cellWidth);
+        if((this.snakeUnitsArr[0].positionX + 1)>this.board.width && this.direction == DIRECTIONS.RIGHT){
+            this.snakeUnitsArr[0].positionX=-1;
         }
         if(this.snakeUnitsArr[0].positionX < 0 && this.direction == DIRECTIONS.LEFT){
             this.snakeUnitsArr[0].positionX=this.board.width;
         }
 
-        if((this.snakeUnitsArr[0].positionY + this.board.cellWidth)>this.board.height && this.direction == DIRECTIONS.DOWN){
-            this.snakeUnitsArr[0].positionY=-1*(this.board.cellWidth);
+        if((this.snakeUnitsArr[0].positionY + 1)>this.board.height && this.direction == DIRECTIONS.DOWN){
+            this.snakeUnitsArr[0].positionY=-1;
         }
         if(this.snakeUnitsArr[0].positionY < 0 && this.direction == DIRECTIONS.UP){
             this.snakeUnitsArr[0].positionY=this.board.height;
