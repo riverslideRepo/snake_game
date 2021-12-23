@@ -10,7 +10,7 @@ export class Snake{
 
         this.positionX=0;
         this.positionY=0;
-        this.snakeSpeed = 300;
+        this.snakeSpeed = 1000;
         this.direction=DIRECTIONS.RIGHT;  
         
         this.snakeUnitsArr=[new SnakeUnit(this.board,0,0),new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0)]; //for the first unt ::: ,new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0),new SnakeUnit(this.board,-15,0)
@@ -84,17 +84,17 @@ export class Snake{
     }
     boundaryReposition=()=>{
         if((this.snakeUnitsArr[0].positionX + 1)>this.board.width && this.direction == DIRECTIONS.RIGHT){
-            this.snakeUnitsArr[0].positionX=-1;
+            this.snakeUnitsArr[0].positionX=0;
         }
         if(this.snakeUnitsArr[0].positionX < 0 && this.direction == DIRECTIONS.LEFT){
-            this.snakeUnitsArr[0].positionX=this.board.width;
+            this.snakeUnitsArr[0].positionX=this.board.width-1;
         }
 
         if((this.snakeUnitsArr[0].positionY + 1)>this.board.height && this.direction == DIRECTIONS.DOWN){
-            this.snakeUnitsArr[0].positionY=-1;
+            this.snakeUnitsArr[0].positionY=0;
         }
         if(this.snakeUnitsArr[0].positionY < 0 && this.direction == DIRECTIONS.UP){
-            this.snakeUnitsArr[0].positionY=this.board.height;
+            this.snakeUnitsArr[0].positionY=this.board.height-1;
         }
     }
     changeDirection(direction){
