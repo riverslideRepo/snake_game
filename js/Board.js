@@ -2,7 +2,7 @@ import { Snake } from "./Snake.js";
 import { FoodController } from "./FoodController.js";
 export class Board{
     constructor(width=300,height=300,parent=document.getElementsByTagName('body')[0]){
-        this.width=width;1
+        this.width=width;
         this.height=height;
         this.parent=parent;
         this.cellWidth=9;
