@@ -20,8 +20,8 @@ export class SnakeUnit{
 
     render=()=>{
         this.board.canvas.fillStyle="white";
-        this.board.canvas.fillRect(this.positionX,this.positionY,this.board.cellWidth,this.board.cellWidth);
-        
+        this.board.canvas.fillRect(this.positionX * this.board.cellWidth,this.positionY * this.board.cellWidth,this.board.cellWidth,this.board.cellWidth);
+
     }
 
     move=()=>{
