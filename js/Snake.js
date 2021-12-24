@@ -75,7 +75,7 @@ export class Snake{
             this.increaseLength();
             this.board.foodController.generateFood();
             this.board.score++;
-            document.getElementById("counter").innerHTML=this.board.score;
+            // document.getElementById("counter").innerHTML=this.board.score;
         }
     }
 

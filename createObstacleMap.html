@@ -15,14 +15,15 @@
     <div id="board"></div>
     <button onclick="generateMap()">Generate Map</button>
     <button onclick="copyToClipboard(this)">Copy to Clipboard</button>
+    <button onclick="saveToLocalStorage()">Save to Local Storage</button>
     <br>
     <textarea id="output_map">
 
     </textarea>
 
     <script>
-        const rows = document.getElementById("rows").value;
-        const columns = document.getElementById("columns").value;
+        const rows = document.getElementById("rows");
+        const columns = document.getElementById("columns");
         const board = document.getElementById("board");
         createBoard();
 
@@ -34,7 +35,7 @@
                 
                 for(let j=0; j<tds.length; j++){
                     if(tds[j].getAttribute("cellData") == "1")
-                        arr.push([i,j]);
+                        arr.push([j,i]);
                     
                 }
 
@@ -50,19 +51,30 @@
             btn.innerHTML="Copied";
         }
 
+        function saveToLocalStorage(){
+            const output_map = document.getElementById("output_map");
+            let name = prompt("Name of your model: ");
+            let obj={
+                name,
+                data:output_map.value
+            }
+            window.localStorage.setItem("riverslide_snake_game_obstacleMap",JSON.stringify(obj));
+        }
+
 
         function createBoard() {
             
             const table = document.createElement("table");
             table.id="obstacleMapTable";
+            board.innerHTML = "";
             board.appendChild(table);
 
-            for(let i = 0; i < rows; i++) {
+            for(let i = 0; i < rows.value; i++) {
                 const tr = document.createElement("tr");
                 tr.id="row"+i;
                 table.appendChild(tr);
 
-                for(let j = 0; j < columns; j++) {
+                for(let j = 0; j < columns.value; j++) {
                     const td= document.createElement("td");
                     tr.appendChild(td);
                     td.classList.add("cell");

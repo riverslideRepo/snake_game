@@ -10,17 +10,9 @@ export class Board{
         this.cellWidth=10;
         this.createCanvas();
 
-        let obstacleData = ObstacleMaps.BOX;
+        this.obstacleData = ObstacleMaps.CM32;
         
-        this.obstacleController = new ObstacleController(this,obstacleData.obstacles);
-        this.snake=new Snake(this,obstacleData.snakeInitPosition);
-        this.foodController = new FoodController(this); 
-
-        
-
-        this.score=0;
-
-        this.render();
+        this.startGame();
     }
 
     createCanvas=()=> {
@@ -30,6 +22,16 @@ export class Board{
         canvas.setAttribute("width",this.width * this.cellWidth);
         canvas.setAttribute("height",this.height * this.cellWidth);
         this.parent.appendChild(canvas);
+    }
+
+    startGame=()=> {
+        this.obstacleController = new ObstacleController(this,this.obstacleData.obstacles);
+        this.snake=new Snake(this,this.obstacleData.snakeInitPosition);
+        this.foodController = new FoodController(this); 
+
+        this.score=0;
+
+        this.render();
     }
 
     gameOver=()=>{

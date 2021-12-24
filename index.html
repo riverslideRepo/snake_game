@@ -6,14 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./js/main.js" defer type="module"></script>
-    <link rel="stylesheet" href="./css/main.css">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <style>
-        body {
-            overscroll-behavior: contain;
-        }
-    </style>
-    <h1 id="counter">--</h1>
+    <header>
+        <div id="nav">
+            <div id="title">
+                Minesweeper
+            </div>
+            <div id="settings" onclick="showMenu()"></div>
+        </div>
+        <div id="menu">
+            
+           <!---TODO for menu---->
+
+            <div id="bottom">
+
+                <a href="about.html">About</a>
+                
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="main">
+            <div id="upper">
+            </div>
+            <div id="middle">
+                <div id="board"></div>
+                <div id="lower" onclick="restart()">
+                    Puddu Wins
+                </div>
+            </div>
+            <div id="lower_fixed">
+                <div onclick="restart()">Restart</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div id="company">Riverslide</div>
+        <div id="year">2022</div>
+    </footer>
+    
 </body>
 </html>
