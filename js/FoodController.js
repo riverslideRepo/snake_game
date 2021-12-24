@@ -17,9 +17,26 @@ export class FoodController{
         }
     }
     generateFood=()=>{
-       
-        let posx = Math.floor(Math.random()*this.board.width);
-        let posy = Math.floor(Math.random()*this.board.height);
+
+        let ok=false;
+        let posx,posy;
+
+        do{
+            posx = Math.floor(Math.random()*this.board.width);
+            posy = Math.floor(Math.random()*this.board.height);
+
+            ////check for bodyfall
+            const snakeUnits = this.board.snake.snakeUnitsArr;
+            for(let i=0; i<snakeUnits.length; i++){
+                if(snakeUnits[i].positionX == posx && snakeUnits[i].positionY == posy){
+                    continue;
+                }
+            }
+
+            ok=true;
+            //check for obstacle
+
+        }while(ok === false); 
 
         this.currentFood=new Food(this.board,posx,posy,this.board.cellWidth);
         

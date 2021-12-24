@@ -4,7 +4,7 @@ export class Food{
         this.positionX=positionX;
         this.positionY=positionY;
         this.width=width;
-        console.log(positionX,positionY);
+        // console.log(positionX,positionY);
     }
     render=()=>{
         // console.log(this)

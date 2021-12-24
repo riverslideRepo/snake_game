@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create your own obstacle map</h1>
+    Board Size:
+    Row: <input type="number" id="rows" value="30">
+    Columns: <input type="number" id="columns" value="30">
+    <button onclick="createBoard()">Create Board</button>
+    <div id="board"></div>
+    <button onclick="generateMap()">Generate Map</button>
+    <button onclick="copyToClipboard(this)">Copy to Clipboard</button>
+    <br>
+    <textarea id="output_map">
+
+    </textarea>
+
+    <script>
+        const rows = document.getElementById("rows").value;
+        const columns = document.getElementById("columns").value;
+        const board = document.getElementById("board");
+        createBoard();
+
+        function generateMap(){
+            let arr=[];
+            let trs = document.querySelectorAll("#obstacleMapTable tr");
+            for(let i=0; i<trs.length; i++){
+                let tds = document.querySelectorAll("#row"+i+" td");
+                
+                for(let j=0; j<tds.length; j++){
+                    if(tds[j].getAttribute("cellData") == "1")
+                        arr.push([i,j]);
+                    
+                }
+
+            }
+
+            document.getElementById("output_map").value=JSON.stringify(arr);
+        }
+
+        function copyToClipboard(btn){
+            const output_map = document.getElementById("output_map");
+            output_map.select();
+            navigator.clipboard.writeText(output_map.value);
+            btn.innerHTML="Copied";
+        }
+
+
+        function createBoard() {
+            
+            const table = document.createElement("table");
+            table.id="obstacleMapTable";
+            board.appendChild(table);
+
+            for(let i = 0; i < rows; i++) {
+                const tr = document.createElement("tr");
+                tr.id="row"+i;
+                table.appendChild(tr);
+
+                for(let j = 0; j < columns; j++) {
+                    const td= document.createElement("td");
+                    tr.appendChild(td);
+                    td.classList.add("cell");
+                    td.setAttribute("cellData","0");
+                    td.addEventListener("click", function(){
+                        if(this.getAttribute("cellData") == "0"){
+                            this.setAttribute("cellData","1");
+                        }else{
+                            this.setAttribute("cellData","0");
+                        }
+                    })
+                }
+            }
+        }
+    </script>
+
+    <style>
+        #obstacleMapTable{
+            border-collapse: collapse;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid black;
+        }
+        .cell{
+            width:20px;
+            height:20px;
+            border: 1px solid gray;
+            padding: 0;
+        }
+        .cell:hover{
+            background-color: gray;
+        }
+        [cellData="0"]{
+            background-color: white;
+        }
+        [cellData="1"]{
+            background-color: black;
+        }
+        #output_map{
+            height:300px;
+            width: 400px;
+        }
+    </style>
+</body>
+</html>

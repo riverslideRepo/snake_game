@@ -23,7 +23,7 @@ export class Snake{
         this.snakeUnitsArr.forEach((unit)=>{
             unit.render();
         })
-        this.board.foodController.render();
+        // this.board.foodController.render();
     }
 
     move=()=>{
