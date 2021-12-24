@@ -2,9 +2,8 @@ import { Snake } from "./Snake.js";
 
 export class ObstacleController{
 
-    constructor(board,obsTacleImage,map=[]){
+    constructor(board,map=[]){
         this.board = board;
-        this.obsTacleImage=obsTacleImage;
         this.map = map; 
                
     }
@@ -27,16 +26,12 @@ export class ObstacleController{
         }
     }
     renderCell=(x=2,y=3)=>{
-        const img=new Image();
-        img.src=this.obsTacleImage;
-        this.board.canvas.drawImage(img, x * this.board.cellWidth, y * this.board.cellWidth, this.board.cellWidth, this.board.cellWidth);
+        this.board.canvas.fillStyle="maroon";
+        this.board.canvas.fillRect(this.board.cellWidth * x, this.board.cellWidth * y, this.board.cellWidth, this.board.cellWidth);
+        // this.board.canvas.drawImage(img, x * this.board.cellWidth, y * this.board.cellWidth, this.board.cellWidth, this.board.cellWidth);
     }
 
 }
-export const ObstacleImagePath="./resources/obstacleImages";
-export const ObstacleImages = {
-    redBrick: "redBrick.png"
-};
 
 export const ObstacleMaps = {
     NO_OBSTACLES:{

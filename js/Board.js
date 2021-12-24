@@ -1,6 +1,6 @@
 import { Snake } from "./Snake.js";
 import { FoodController } from "./FoodController.js";
-import { ObstacleController, ObstacleImagePath, ObstacleImages, ObstacleMaps } from "./ObstacleController.js";
+import { ObstacleController, ObstacleMaps } from "./ObstacleController.js";
 
 export class Board{
     constructor(width=30,height=30,parent=document.getElementsByTagName('body')[0]){
@@ -11,9 +11,8 @@ export class Board{
         this.createCanvas();
 
         let obstacleData = ObstacleMaps.BOX;
-        let obstacleImg = ObstacleImagePath + "/" + ObstacleImages.redBrick;
         
-        this.obstacleController = new ObstacleController(this,obstacleImg,obstacleData.obstacles);
+        this.obstacleController = new ObstacleController(this,obstacleData.obstacles);
         this.snake=new Snake(this,obstacleData.snakeInitPosition);
         this.foodController = new FoodController(this); 
 
