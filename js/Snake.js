@@ -1,5 +1,6 @@
 import { DIRECTIONS } from "./commonEnums.js"; 
 import { SnakeUnit } from "./SnakeUnit.js";
+import { UIControls } from "./EventHandler.js";
 
 export class Snake{
     constructor(board,initPosition) {
@@ -75,7 +76,7 @@ export class Snake{
             this.increaseLength();
             this.board.foodController.generateFood();
             this.board.score++;
-            // document.getElementById("counter").innerHTML=this.board.score;
+            UIControls.showScore(this.board.score);
         }
     }
 

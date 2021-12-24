@@ -11,3 +11,7 @@ export const KEYCODES={
    DOWN_ARROW_KEY:'ArrowDown'
 
 }
+export const PLAY_STATE={
+    PAUSED:"paused",
+    PLAYING:"playing"
+}
