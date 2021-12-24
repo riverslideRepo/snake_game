@@ -27,14 +27,30 @@ export class FoodController{
 
             ////check for bodyfall
             const snakeUnits = this.board.snake.snakeUnitsArr;
+            let flag = false;
+
             for(let i=0; i<snakeUnits.length; i++){
                 if(snakeUnits[i].positionX == posx && snakeUnits[i].positionY == posy){
-                    continue;
+                    flag=true;
+                    break;
+                }
+            }
+            //check for obstacle
+            const obstacles = this.board.obstacleController.map;
+            // console.log(obstacles)
+            for(let i=0; i<obstacles.length; i++){
+                if(obstacles[i][0] == posx && obstacles[i][1] == posy){
+                    flag = true;
+                    break;
                 }
             }
 
-            ok=true;
-            //check for obstacle
+            if(flag === true){
+                ok=false;
+            }else{
+                ok=true;
+            }
+            
 
         }while(ok === false); 
 

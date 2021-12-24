@@ -12,8 +12,8 @@ export class Board{
 
         let obstacleData = ObstacleMaps.BOX;
         let obstacleImg = ObstacleImagePath + "/" + ObstacleImages.redBrick;
+        
         this.obstacleController = new ObstacleController(this,obstacleImg,obstacleData.obstacles);
-
         this.snake=new Snake(this,obstacleData.snakeInitPosition);
         this.foodController = new FoodController(this); 
 
