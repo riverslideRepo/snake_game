@@ -9,12 +9,17 @@ export class ObstacleController{
                
     }
 
-    verifyObstacleMap=(map)=>{
-        if(this.board.height === map.length && this.board.width === map[0].length)
-            return true;
-        else
-            return false;
+    checkForCollision(){
+        let head = this.board.snake.snakeUnitsArr[0];
+        for(let i=0; i<this.map.length; i++){
+            if(head.positionX == this.map[i][0] && head.positionY == this.map[i][1]){
+                return true;
+            }
+        }
+
+        return false;
     }
+
 
     render=()=>{
         for(let i=0; i<this.map.length; i++){
@@ -26,6 +31,7 @@ export class ObstacleController{
         img.src=this.obsTacleImage;
         this.board.canvas.drawImage(img, x * this.board.cellWidth, y * this.board.cellWidth, this.board.cellWidth, this.board.cellWidth);
     }
+
 }
 export const ObstacleImagePath="./resources/obstacleImages";
 export const ObstacleImages = {

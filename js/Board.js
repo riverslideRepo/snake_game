@@ -33,6 +33,11 @@ export class Board{
         this.parent.appendChild(canvas);
     }
 
+    gameOver=()=>{
+        this.snake.pause();
+        console.log("Game Over");
+    }
+
     render=()=>{
 
         this.canvas.clearRect(0,0,this.width * this.cellWidth,this.height * this.cellWidth);

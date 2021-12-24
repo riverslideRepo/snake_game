@@ -10,7 +10,7 @@ export class Snake{
 
         this.positionX=0;
         this.positionY=0;
-        this.snakeSpeed = 1000;
+        this.snakeSpeed = 100;
         this.direction=DIRECTIONS.RIGHT;  
         
         this.snakeUnitsArr=[
@@ -52,34 +52,19 @@ export class Snake{
         this.boundaryReposition();
 
         this.checkFood();
-        
+        this.checkObstacle();
         this.checkSelfCollision();       
 
     }
 
     checkSelfCollision=()=>{
         let head=this.snakeUnitsArr[0];
-        // let headCenterX = head.positionX + this.board.cellWidth/2;
-        // let headCenterY = head.positionY + this.board.cellWidth/2;
-        // let ifCollided = false;
 
         for(let i=1; i<this.snakeUnitsArr.length; i++) {
             let snakeUnit = this.snakeUnitsArr[i];
 
-            // let calcX = snakeUnit.positionX + this.board.cellWidth/2;
-            // let calcY = snakeUnit.positionY + this.board.cellWidth/2;
-
-            // if((headCenterX > calcX-this.board.cellWidth/2)
-            // && (headCenterX < calcX+this.board.cellWidth/2)
-            // && (headCenterY > calcY-this.board.cellWidth/2)
-            // && (headCenterY < calcY+this.board.cellWidth/2)){
-            //     clearInterval(this.timer);
-            //     console.log("Game over");
-            // }
-
             if((head.positionX == snakeUnit.positionX) && (head.positionY == snakeUnit.positionY)){
-                this.pause();
-                console.log("Game over");
+                this.board.gameOver(); 
             }
         }
         
@@ -93,6 +78,12 @@ export class Snake{
             document.getElementById("counter").innerHTML=this.board.score;
         }
     }
+
+    checkObstacle=()=>{
+        if(this.board.obstacleController.checkForCollision()){
+            this.board.gameOver();
+        }
+    } 
     boundaryReposition=()=>{
         if((this.snakeUnitsArr[0].positionX + 1)>this.board.width && this.direction == DIRECTIONS.RIGHT){
             this.snakeUnitsArr[0].positionX=0;
