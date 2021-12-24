@@ -9,11 +9,15 @@ export class Board{
         this.parent=parent;
         this.cellWidth=10;
         this.createCanvas();
-        this.snake=new Snake(this);
+
+        let obstacleData = ObstacleMaps.BOX;
+        let obstacleImg = ObstacleImagePath + "/" + ObstacleImages.redBrick;
+        this.obstacleController = new ObstacleController(this,obstacleImg,obstacleData.obstacles);
+
+        this.snake=new Snake(this,obstacleData.snakeInitPosition);
         this.foodController = new FoodController(this); 
 
-        let obstacleImg = ObstacleImagePath + "/" + ObstacleImages.redBrick;
-        this.obstacleController = new ObstacleController(this,obstacleImg,ObstacleMaps.box);
+        
 
         this.score=0;
 

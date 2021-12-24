@@ -2,7 +2,7 @@ import { DIRECTIONS } from "./commonEnums.js";
 import { SnakeUnit } from "./SnakeUnit.js";
 
 export class Snake{
-    constructor(board) {
+    constructor(board,initPosition) {
         this.length=1;  ///this is calculated as unit, not in pixel
         this.board=board;
         // this.cellWidth=this.board.cellWidth;
@@ -13,11 +13,22 @@ export class Snake{
         this.snakeSpeed = 1000;
         this.direction=DIRECTIONS.RIGHT;  
         
-        this.snakeUnitsArr=[new SnakeUnit(this.board,0,0),new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0)]; //for the first unt ::: ,new SnakeUnit(this.board,-5,0),new SnakeUnit(this.board,-10,0),new SnakeUnit(this.board,-15,0)
+        this.snakeUnitsArr=[
+            new SnakeUnit(this.board,initPosition[0][0],initPosition[0][1]),
+            new SnakeUnit(this.board,initPosition[1][0],initPosition[1][1]),
+            new SnakeUnit(this.board,initPosition[2][0],initPosition[2][1])
+        ]; 
 
-        this.timer=setInterval(this.move, this.snakeSpeed);
+        this.play();
 
     }
+
+    pause=()=>{
+        clearInterval(this.timer);
+    };
+    play=()=>{
+        this.timer=setInterval(this.move, this.snakeSpeed);
+    };
 
     render=()=>{
         this.snakeUnitsArr.forEach((unit)=>{
@@ -67,7 +78,7 @@ export class Snake{
             // }
 
             if((head.positionX == snakeUnit.positionX) && (head.positionY == snakeUnit.positionY)){
-                clearInterval(this.timer);
+                this.pause();
                 console.log("Game over");
             }
         }
