@@ -1,6 +1,8 @@
 import { Snake } from "./Snake.js";
 import { FoodController } from "./FoodController.js";
 import { ObstacleController, ObstacleMaps } from "./ObstacleController.js";
+import { UIControls } from "./EventHandler.js";
+import { PLAY_STATE } from "./commonEnums.js";
 
 export class Board{
     constructor(width=30,height=30,parent=document.getElementsByTagName('body')[0]){
@@ -8,6 +10,7 @@ export class Board{
         this.height=height;
         this.parent=parent;
         this.cellWidth=10;
+        this.playState = PLAY_STATE.PAUSED;
         this.createCanvas();
 
         this.obstacleData = ObstacleMaps.CM32;
@@ -29,14 +32,33 @@ export class Board{
         this.snake=new Snake(this,this.obstacleData.snakeInitPosition);
         this.foodController = new FoodController(this); 
 
+        this.playState = PLAY_STATE.PAUSED;
         this.score=0;
+        this.pauseGame();
+        UIControls.startGame();
 
         this.render();
     }
-
+    pauseGame=()=>{
+        this.snake.pause();
+        this.alterPlayState();
+    }
+    resumeGame=()=>{
+        this.snake.play();
+        this.alterPlayState();
+    }
+    alterPlayState=()=>{
+        if(this.playState == PLAY_STATE.PAUSED){
+            this.playState = PLAY_STATE.PLAYING;
+        }else{
+            this.playState = PLAY_STATE.PAUSED;
+        }
+    }
     gameOver=()=>{
+        this.playState = PLAY_STATE.OVER;
         this.snake.pause();
         console.log("Game Over");
+        UIControls.showGameOver(this.score);
     }
 
     render=()=>{

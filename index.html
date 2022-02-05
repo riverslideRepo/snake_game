@@ -13,7 +13,7 @@
     <header>
         <div id="nav">
             <div id="title">
-                Minesweeper
+                Snake
             </div>
             <div id="settings" onclick="showMenu()"></div>
         </div>
@@ -31,15 +31,20 @@
     <section>
         <div id="main">
             <div id="upper">
+                <span>Score: </span>
+                <span id="game_score">0</span>
             </div>
             <div id="middle">
                 <div id="board"></div>
-                <div id="lower" onclick="restart()">
+                <div id="lower">
                     Puddu Wins
                 </div>
             </div>
             <div id="lower_fixed">
-                <div onclick="restart()">Restart</div>
+                <div id="play_btn">Play</div>
+            </div>
+            <div id="lower_fixed">
+                <div id="restart_btn">Restart</div>
             </div>
         </div>
     </section>

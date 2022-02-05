@@ -8,6 +8,12 @@ export const KEYCODES={
    LEFT_ARROW_KEY:'ArrowLeft',
    UP_ARROW_KEY:'ArrowUp',
    RIGHT_ARROW_KEY:'ArrowRight',
-   DOWN_ARROW_KEY:'ArrowDown'
+   DOWN_ARROW_KEY:'ArrowDown',
+   SPACE_BAR:"Space"
 
+}
+export const PLAY_STATE={
+    PAUSED:"paused",
+    PLAYING:"playing",
+    OVER:"over"
 }
