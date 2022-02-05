@@ -39,10 +39,13 @@ export const UIControls={
         let lower=document.getElementById("lower");
         lower.innerHTML="Game Over! Score "+score;
         lower.classList.add("active");
+        document.getElementById("play_btn").style.visibility="hidden";
     },
     startGame:()=>{
         let lower=document.getElementById("lower");
         lower.classList.remove("active");
+        document.getElementById("play_btn").style.visibility="visible";
+        document.getElementById("play_btn").innerHTML="Play";
     },
     showScore:(score)=>{
         document.getElementById("game_score").innerText = score;
