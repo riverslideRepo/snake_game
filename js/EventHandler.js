@@ -1,4 +1,14 @@
 import { DIRECTIONS,KEYCODES,PLAY_STATE } from "./commonEnums.js";
+
+function playPauseHandler(board){
+    if(board.playState == PLAY_STATE.PAUSED){
+        document.getElementById("play_btn").innerHTML="Resume";
+        board.pauseGame();
+    }else{
+        document.getElementById("play_btn").innerHTML="Pause";
+        board.resumeGame();
+    }
+}
 export class EventHandler{
     constructor(board){
         document.addEventListener('keydown',(e)=>{
@@ -21,15 +31,7 @@ export class EventHandler{
         
 
         document.getElementById("restart_btn").addEventListener("click",board.startGame,false);
-        document.getElementById("play_btn").addEventListener("click",()=>{
-            if(board.playState == PLAY_STATE.PAUSED){
-                document.getElementById("play_btn").innerHTML="Resume";
-                board.pauseGame();
-            }else{
-                document.getElementById("play_btn").innerHTML="Pause";
-                board.resumeGame();
-            }
-        },false);
+        document.getElementById("play_btn").addEventListener("click",playPauseHandler.bind(null,board),false);
         
     }
 }
