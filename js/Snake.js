@@ -11,7 +11,7 @@ export class Snake{
 
         this.positionX=0;
         this.positionY=0;
-        this.snakeSpeed = 100;
+        this.snakeSpeed = 300;
         this.direction=DIRECTIONS.RIGHT;  
         
         this.snakeUnitsArr=[
