@@ -32,6 +32,7 @@ export class Board{
         this.snake=new Snake(this,this.obstacleData.snakeInitPosition);
         this.foodController = new FoodController(this); 
 
+        this.playState = PLAY_STATE.PAUSED;
         this.score=0;
         this.pauseGame();
         UIControls.startGame();
@@ -54,6 +55,7 @@ export class Board{
         }
     }
     gameOver=()=>{
+        this.playState = PLAY_STATE.OVER;
         this.snake.pause();
         console.log("Game Over");
         UIControls.showGameOver(this.score);

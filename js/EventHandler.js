@@ -1,6 +1,9 @@
 import { DIRECTIONS,KEYCODES,PLAY_STATE } from "./commonEnums.js";
 
 function playPauseHandler(board){
+    if(board.playState == PLAY_STATE.OVER)
+        return;
+
     if(board.playState == PLAY_STATE.PAUSED){
         document.getElementById("play_btn").innerHTML="Resume";
         board.pauseGame();
@@ -20,11 +23,13 @@ export class EventHandler{
                 board.snake.changeDirection(DIRECTIONS.UP);
             }else if(e.code == KEYCODES.DOWN_ARROW_KEY) {
                 board.snake.changeDirection(DIRECTIONS.DOWN);
+            }else if(e.code == KEYCODES.SPACE_BAR) {
+                playPauseHandler(board);
             }
             else if(e.code == 'KeyY'){
                 board.snake.increaseLength();
             } 
-            //console.log(e);
+            // console.log(e);
             
         },false);
 
@@ -42,12 +47,14 @@ export const UIControls={
         lower.innerHTML="Game Over! Score "+score;
         lower.classList.add("active");
         document.getElementById("play_btn").style.visibility="hidden";
+        document.getElementById("game_score").innerText = score;
     },
     startGame:()=>{
         let lower=document.getElementById("lower");
         lower.classList.remove("active");
         document.getElementById("play_btn").style.visibility="visible";
         document.getElementById("play_btn").innerHTML="Play";
+        document.getElementById("game_score").innerText = "0";
     },
     showScore:(score)=>{
         document.getElementById("game_score").innerText = score;
