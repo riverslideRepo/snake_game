@@ -29,6 +29,7 @@ export class Board{
     }
 
     startGame=()=> {
+        ///all instances
         this.obstacleController = new ObstacleController(this,this.obstacleData.obstacles);
         this.snake=new Snake(this,this.obstacleData.snakeInitPosition);
         this.foodController = new FoodController(this); 
