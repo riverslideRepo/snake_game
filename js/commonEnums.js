@@ -17,3 +17,13 @@ export const PLAY_STATE={
     PLAYING:"playing",
     OVER:"over"
 }
+export const SPEED_LEVElS = {
+    L1:1000,
+    L2:800,
+    L3:500,
+    L4:400,
+    L5:300,
+    L6:200,
+    L7:100,
+    L8:50
+}

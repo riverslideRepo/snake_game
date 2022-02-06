@@ -1,4 +1,4 @@
-import { DIRECTIONS,KEYCODES,PLAY_STATE } from "./commonEnums.js";
+import { DIRECTIONS,KEYCODES,PLAY_STATE,SPEED_LEVElS } from "./commonEnums.js";
 
 function playPauseHandler(board){
     if(board.playState == PLAY_STATE.OVER)
@@ -90,6 +90,39 @@ export class EventHandler{
                    board.snake.changeDirection(DIRECTIONS.RIGHT);
                 }
             
+        },false);
+
+        let speed_option_selector = document.getElementById("speed_option_selector");
+        speed_option_selector.addEventListener("change",()=>{
+            let level;
+            switch(speed_option_selector.value){
+                case "1":
+                    level = SPEED_LEVElS.L1;
+                    break;
+                case "2":
+                    level = SPEED_LEVElS.L2;
+                    break;
+                case "3":
+                    level = SPEED_LEVElS.L3;
+                    break;
+                case "4":
+                    level = SPEED_LEVElS.L4;
+                    break;
+                case "5":
+                    level = SPEED_LEVElS.L5;
+                    break;
+                case "6":
+                    level = SPEED_LEVElS.L6;
+                    break;
+                case "7":
+                    level = SPEED_LEVElS.L7;
+                    break;
+                case "8":
+                    level = SPEED_LEVElS.L8;
+                    break;
+            }
+
+            board.changeSpeed(level);
         },false);
 
     }

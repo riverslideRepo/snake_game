@@ -2,7 +2,7 @@ import { Snake } from "./Snake.js";
 import { FoodController } from "./FoodController.js";
 import { ObstacleController, ObstacleMaps } from "./ObstacleController.js";
 import { UIControls } from "./EventHandler.js";
-import { PLAY_STATE } from "./commonEnums.js";
+import { PLAY_STATE,SPEED_LEVElS } from "./commonEnums.js";
 
 export class Board{
     constructor(width=30,height=30,parent=document.getElementsByTagName('body')[0]){
@@ -11,6 +11,7 @@ export class Board{
         this.parent=parent;
         this.cellWidth=10;
         this.playState = PLAY_STATE.PAUSED;
+        this.speed_level = SPEED_LEVElS.L5;
         this.createCanvas();
 
         this.obstacleData = ObstacleMaps.CM32;
@@ -70,7 +71,12 @@ export class Board{
         this.snake.render();
         window.requestAnimationFrame(this.render)
     }
-
+    changeSpeed=(level)=>{
+        this.speed_level = level;
+        this.snake.snakeSpeed = level;
+        this.startGame();
+    }
+    
     renderBoard=()=>{
         this.canvas.fillStyle="green";
 
