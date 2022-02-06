@@ -135,11 +135,59 @@ export class EventHandler{
                 case "no_obstacle":
                     map = ObstacleMaps.NO_OBSTACLES;
                     break;
+                case "horizontal":
+                    map = ObstacleMaps.HORIZONTAL;
+                    break;
+                case "vertical":
+                    map = ObstacleMaps.VERTICAL;
+                    break;
+                case "corner":
+                    map = ObstacleMaps.CORNER;
+                    break;
+                case "horizontal_tunnel":
+                    map = ObstacleMaps.HORIZONTAL_TUNNEL;
+                    break;
+                case "vertical_tunnel":
+                    map = ObstacleMaps.VERTICAL_TUNNEL;
+                    break;
                 case "box":
                     map = ObstacleMaps.BOX;
                     break;
+                case "dblHorizontal":
+                    map = ObstacleMaps.DBL_HORIZONTAL;
+                    break;
+                case "dblVertical":
+                    map = ObstacleMaps.DBL_VERTICAL;
+                    break;
+                case "dblCorner":
+                    map = ObstacleMaps.DBL_CORNER;
+                    break;
+                case "CM28":
+                    map = ObstacleMaps.CM28;
+                    break;
+                case "plus":
+                    map = ObstacleMaps.PLUS;
+                    break;
+                case "dblPlus":
+                    map = ObstacleMaps.DBL_PLUS;
+                    break;
+                case "cornerPlus":
+                    map = ObstacleMaps.CORNER_PLUS;
+                    break;
+                case "cornerPlusDot":
+                    map = ObstacleMaps.CORNER_PLUS_DOT;
+                    break;
                 case "CM32":
                     map = ObstacleMaps.CM32;
+                    break;
+                case "curveCorner":
+                    map = ObstacleMaps.CURVE_CORNER;
+                    break;
+                case "curveCorner2":
+                    map = ObstacleMaps.CURVE_CORNER2;
+                    break;
+                case "sideY":
+                    map = ObstacleMaps.SIDE_Y;
                     break;
             }
 
