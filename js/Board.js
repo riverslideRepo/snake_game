@@ -14,7 +14,7 @@ export class Board{
         this.speed_level = SPEED_LEVElS.L5;
         this.createCanvas();
 
-        this.obstacleData = ObstacleMaps.CM32;
+        this.obstacleData = ObstacleMaps.NO_OBSTACLES;
         
         this.startGame();
     }
@@ -59,7 +59,6 @@ export class Board{
     gameOver=()=>{
         this.playState = PLAY_STATE.OVER;
         this.snake.pause();
-        console.log("Game Over");
         UIControls.showGameOver(this.score);
     }
 
@@ -75,6 +74,10 @@ export class Board{
     changeSpeed=(level)=>{
         this.speed_level = level;
         this.snake.snakeSpeed = level;
+        this.startGame();
+    }
+    changeObstacleMap=(map)=>{
+        this.obstacleData = map;
         this.startGame();
     }
     

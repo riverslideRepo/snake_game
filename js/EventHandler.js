@@ -1,4 +1,5 @@
 import { DIRECTIONS,KEYCODES,PLAY_STATE,SPEED_LEVElS } from "./commonEnums.js";
+import { ObstacleMaps } from "./ObstacleController.js";
 
 function playPauseHandler(board){
     if(board.playState == PLAY_STATE.OVER)
@@ -92,6 +93,7 @@ export class EventHandler{
             
         },false);
 
+        ////speed level selector
         let speed_option_selector = document.getElementById("speed_option_selector");
         speed_option_selector.addEventListener("change",()=>{
             let level;
@@ -124,6 +126,26 @@ export class EventHandler{
 
             board.changeSpeed(level);
         },false);
+
+        ///obstacle map selector
+        let obstacle_map_selector = document.getElementById("obstacle_map_selector");
+        obstacle_map_selector.addEventListener("change",()=>{
+            let map;
+            switch(obstacle_map_selector.value){
+                case "no_obstacle":
+                    map = ObstacleMaps.NO_OBSTACLES;
+                    break;
+                case "box":
+                    map = ObstacleMaps.BOX;
+                    break;
+                case "CM32":
+                    map = ObstacleMaps.CM32;
+                    break;
+            }
+
+            board.changeObstacleMap(map);
+        },false);
+
 
     }
 }

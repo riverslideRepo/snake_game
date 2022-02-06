@@ -34,7 +34,7 @@ header{
     perspective-origin: bottom center;
 }
 header *{
-    color: white; 
+    
 }
 
 header #nav{
@@ -93,11 +93,7 @@ header #menu{
 
 header #menu #middle{
     height:100%;
-    display:flex;
-    flex-direction: column;
-
-    align-items:center;
-    justify-content: center;
+    color:white;
 }
 
 header .menu_item{
