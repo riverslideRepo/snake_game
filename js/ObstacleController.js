@@ -28,6 +28,21 @@ export class ObstacleController{
     renderCell=(x=2,y=3)=>{
         this.board.canvas.fillStyle="maroon";
         this.board.canvas.fillRect(this.board.cellWidth * x, this.board.cellWidth * y, this.board.cellWidth, this.board.cellWidth);
+        
+        //drawing pits
+        let obsMap = [[0,0],[1,1],[8,1],[4,2],[8,2],[7,3],[8,3],[2,4],[3,4],[4,5],[7,5],[8,6],[2,7],[5,7],[1,8],[3,8],[4,8],[7,8]];
+
+        this.board.canvas.fillStyle="#b72d08";
+        for(let i=0; i<obsMap.length; i++){
+            let xp = this.board.cellWidth * x + obsMap[i][0];
+            let yp = this.board.cellWidth * y + obsMap[i][1];
+            this.board.canvas.fillRect(xp,yp,1,1);
+        }
+
+        this.board.canvas.strokeStyle="871d08";
+        this.board.canvas.strokeRect(this.board.cellWidth * x, this.board.cellWidth * y, this.board.cellWidth, this.board.cellWidth);
+
+       
         // this.board.canvas.drawImage(img, x * this.board.cellWidth, y * this.board.cellWidth, this.board.cellWidth, this.board.cellWidth);
     }
 

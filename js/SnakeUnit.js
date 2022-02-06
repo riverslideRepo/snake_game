@@ -1,4 +1,4 @@
-import { DIRECTIONS } from './commonEnums.js';
+import { DIRECTIONS,PLAY_STATE } from './commonEnums.js';
 export class SnakeUnit{
 
     constructor(board,positionX=0,positionY=0,direction=DIRECTIONS.RIGHT,color) {
@@ -19,8 +19,15 @@ export class SnakeUnit{
     }
 
     render=()=>{
+        
         this.board.canvas.fillStyle="white";
+        this.board.canvas.strokeStyle="#333";
+        if(this.board.playState == PLAY_STATE.OVER){
+            this.board.canvas.fillStyle="red";
+            this.board.canvas.strokeStyle="red";
+        }
         this.board.canvas.fillRect(this.positionX * this.board.cellWidth,this.positionY * this.board.cellWidth,this.board.cellWidth,this.board.cellWidth);
+        this.board.canvas.strokeRect(this.positionX * this.board.cellWidth,this.positionY * this.board.cellWidth,this.board.cellWidth,this.board.cellWidth);
 
     }
 
