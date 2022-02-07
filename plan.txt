@@ -1,0 +1,9 @@
+Future plans:
+1. Campaign level wise.
+2. Menu UI improvemnet.
+3. Writing about page.
+4. Change obstacle map selector change (swipe and select what to play).
+5. Score calculation change
+6. Smoothening movement(in render).
+7. adding sound.
+8. Let user to make their own obstacle map, pushing to localstorage.
