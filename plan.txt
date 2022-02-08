@@ -7,3 +7,4 @@ Future plans:
 6. Smoothening movement(in render).
 7. adding sound.
 8. Let user to make their own obstacle map, pushing to localstorage.
+9. for slow speed amd quick keystroke, it is not behaving properly
